@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>grec2k — Mens & Womens Collection Shop All</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23000000'/><circle cx='50' cy='50' r='18' fill='%230e7490'/></svg>">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Alo Yoga Style Top Announcement Bar -->
+  <aside class="alo-announcement">
+    <div class="alo-announcement-inner">
+      <span>Exklusives Grec2k Archiv • Über 4.740 Designer-Styles</span>
+      <span>Versandrabatt: Code <span class="code-pill badge-code" title="Code kopieren">GREC2K</span> an der Kasse eingeben</span>
+    </div>
+  </aside>
+
+  <!-- Alo Yoga Style Sticky Header -->
+  <header class="alo-header">
+    <div class="alo-header-inner">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="alo-brand" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+        <span>grec2k</span>
+        <span class="alo-brand-dot"></span>
+      </a>
+
+      <!-- Center Department Navigation -->
+      <nav class="alo-nav-departments">
+        <button class="dept-link active" data-dept="all">Shop All</button>
+        <button class="dept-link" data-dept="men">Herren</button>
+        <button class="dept-link" data-dept="women">Damen</button>
+        <button class="dept-link" data-dept="curated">Curated Drops</button>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="alo-header-actions">
+        <!-- Instant Search Input -->
+        <div class="alo-search-box">
+          <input 
+            type="text" 
+            id="search-input" 
+            class="alo-search-input" 
+            placeholder="Suchen..." 
+            autocomplete="off"
+          />
+          <button id="search-clear" class="search-clear-btn" title="Suche leeren">&times;</button>
+        </div>
+
+        <!-- Currency Selector -->
+        <select id="currency-select" class="alo-currency-select" title="Währung">
+          <option value="EUR">EUR (€)</option>
+          <option value="USD">USD ($)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="JPY">JPY (¥)</option>
+        </select>
+
+        <!-- Wishlist Button -->
+        <button id="wishlist-toggle-btn" class="alo-icon-btn" title="Gemerkt">
+          <span>Gemerkt</span>
+          <span id="wishlist-count-badge" class="alo-count-badge">(0)</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Collection Page Header (Alo Yoga Title & Layout) -->
+  <section class="alo-collection-header">
+    <div class="alo-title-row">
+      <h1 id="collection-main-title" class="alo-collection-title">Shop All</h1>
+    </div>
+    
+    <p class="alo-collection-subtitle">
+      Kuratierte Streetwear- und Designer-Silhouetten aus dem Grec2k Master Archiv mit direkter Weblink-Verbindung.
+    </p>
+
+    <!-- Destination Preference (Store vs Agent) -->
+    <div class="alo-destination-row">
+      <span>Klick auf Produktbild öffnet:</span>
+      <div class="alo-dest-buttons">
+        <button class="alo-dest-btn active link-pref-btn" data-pref="direct">Original Store (Weidian)</button>
+        <button class="alo-dest-btn link-pref-btn" data-pref="agent">Litbuy Agent</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horizontal Category Pill Carousel (Alo Yoga Style) -->
+  <nav class="alo-categories-bar">
+    <div id="categories-scroll" class="alo-categories-inner">
+      <!-- Rendered dynamically via app.js -->
+    </div>
+  </nav>
+
+  <!-- Filter & Sorting Toolbar -->
+  <section class="alo-filter-toolbar">
+    <div class="alo-toolbar-inner">
+      
+      <div class="alo-toolbar-left">
+        <!-- Brand Select -->
+        <select id="brand-select" class="alo-select" title="Marke filtern">
+          <option value="all">Marke: Alle</option>
+        </select>
+
+        <!-- Price Preset Group -->
+        <div class="alo-price-group">
+          <button class="alo-price-btn active price-pill" data-price="all">Alle</button>
+          <button class="alo-price-btn price-pill" data-price="under25">&lt; 25€</button>
+          <button class="alo-price-btn price-pill" data-price="25-50">25–50€</button>
+          <button class="alo-price-btn price-pill" data-price="50-100">50–100€</button>
+          <button class="alo-price-btn price-pill" data-price="100plus">&gt; 100€</button>
+        </div>
+      </div>
+
+      <div class="alo-toolbar-right">
+        <!-- Sort Select -->
+        <select id="sort-select" class="alo-select" title="Sortieren">
+          <option value="featured">Sortieren: Empfohlen</option>
+          <option value="price-asc">Preis: Aufsteigend</option>
+          <option value="price-desc">Preis: Absteigend</option>
+          <option value="brand-asc">Marke: A–Z</option>
+          <option value="name-asc">Name: A–Z</option>
+        </select>
+
+        <!-- Items per page -->
+        <select id="pagesize-select" class="alo-select" title="Artikel pro Seite">
+          <option value="48">48 / Seite</option>
+          <option value="96">96 / Seite</option>
+          <option value="144">144 / Seite</option>
+        </select>
+
+        <!-- View Density Toggle -->
+        <div class="alo-grid-switcher">
+          <button class="alo-grid-btn active view-btn" data-view="standard" title="4 Spalten">GRID</button>
+          <button class="alo-grid-btn view-btn" data-view="compact" title="Kompakt 6 Spalten">KOMPAKT</button>
+          <button class="alo-grid-btn view-btn" data-view="list" title="Liste">LISTE</button>
+        </div>
+
+        <!-- Result count -->
+        <span class="alo-results-counter"><span id="results-count" class="alo-results-num">0</span> Styles</span>
+      </div>
+
+    </div>
+
+    <!-- Active Filter Chips -->
+    <div id="active-filters-row" class="alo-chips-container"></div>
+  </section>
+
+  <!-- Main Catalog Grid (Alo Yoga 4-Columns) -->
+  <main class="alo-main-container">
+    <div id="products-grid" class="alo-product-grid">
+      <!-- Cards rendered dynamically via app.js -->
+    </div>
+
+    <!-- Pagination Bar -->
+    <nav id="pagination-section" class="alo-pagination" aria-label="Seiten">
+      <div id="page-info" class="alo-page-info">1–48 von 4.744 Styles</div>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="prev-page-btn" class="alo-page-btn">Zurück</button>
+        <div id="page-numbers" style="display:flex; gap:4px; align-items:center;"></div>
+        <button id="next-page-btn" class="alo-page-btn">Weiter</button>
+      </div>
+    </nav>
+  </main>
+
+  <!-- Quick View Modal (Alo Yoga Clean Layout) -->
+  <div id="modal-backdrop" class="alo-modal-overlay" role="dialog" aria-modal="true">
+    <div id="modal-container" class="alo-modal-box">
+      <button id="modal-close-btn" class="alo-modal-close" title="Schließen">&times;</button>
+    </div>
+  </div>
+
+  <!-- Saved / Wishlist Slide-Over Drawer -->
+  <div id="wishlist-backdrop" class="alo-drawer-overlay">
+    <div class="alo-drawer">
+      <div class="alo-drawer-header">
+        <h3 class="alo-drawer-title">Gemerkt (<span id="drawer-count">0</span>)</h3>
+        <button id="wishlist-close-btn" class="alo-drawer-close">&times;</button>
+      </div>
+
+      <div id="wishlist-items-container" class="alo-drawer-body">
+        <!-- Populated dynamically -->
+      </div>
+
+      <div class="alo-drawer-footer">
+        <div class="alo-drawer-total">
+          <span>Gesamtwert:</span>
+          <span id="wishlist-total-val">0,00 €</span>
+        </div>
+        <button id="wishlist-export-btn" class="alo-btn-primary">
+          CSV Exportieren
+        </button>
+        <button id="wishlist-clear-btn" class="alo-btn-secondary">
+          Liste leeren
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Stack -->
+  <div id="toast-container" class="alo-toast-stack"></div>
+
+  <!-- Minimal Alo Yoga Style Footer -->
+  <footer class="alo-footer">
+    <div class="alo-footer-inner">
+      <div>
+        <strong style="color:#000000; text-transform:lowercase;">grec2k</strong> — Designer Archive & Collection Catalog. 4.740+ verifizierte Styles.
+      </div>
+      <div>
+        Alle Bildrechte liegen bei den jeweiligen Marken und Erstellern.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./data/products.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "exclusive-vault-webapp",
+  "version": "1.0.0",
+  "description": "Haute Couture & Streetwear Luxury Catalog Web App indexing 4,760+ products from the GREC2K Master Catalog",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "luxury",
+    "streetwear",
+    "catalog",
+    "weidian",
+    "litbuy",
+    "fashion",
+    "webapp"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

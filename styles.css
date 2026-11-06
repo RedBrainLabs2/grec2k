@@ -1,0 +1,1252 @@
+/* ==========================================================================
+   grec2k — Alo Yoga Inspired Luxury E-Commerce Design System
+   Clean, Bright White, Editorial Typography, Classic Black & Petrol Accent
+   ========================================================================== */
+
+:root {
+  --bg-page: #ffffff;
+  --bg-secondary: #f9f9f9;
+  --bg-card: #f4f4f4;
+  --bg-hover: #ebebeb;
+  
+  --border-light: #eeeeee;
+  --border-subtle: #e2e2e2;
+  --border-dark: #111111;
+  
+  --text-main: #000000;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --text-dim: #aaaaaa;
+  
+  /* Alo Yoga Inspired Petrol Highlight */
+  --petrol-accent: #0e7490;
+  --petrol-hover: #155e75;
+  --petrol-light: #f0fdfa;
+  --petrol-border: #99f6e4;
+  --petrol-active: #0891b2;
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-pill: 9999px;
+  
+  --transition-fast: 0.15s ease;
+  --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-page);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--petrol-accent);
+}
+
+/* ==========================================================================
+   Alo Yoga Top Announcement Banner
+   ========================================================================== */
+.alo-announcement {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px 24px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  z-index: 50;
+}
+.alo-announcement-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.code-pill {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: background var(--transition-fast);
+}
+.code-pill:hover {
+  background: var(--petrol-accent);
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.alo-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.alo-header-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Wordmark */
+.alo-brand {
+  font-family: var(--font-sans);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: lowercase;
+}
+.alo-brand-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--petrol-accent);
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+/* Department Navigation */
+.alo-nav-departments {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  justify-content: center;
+}
+.dept-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 8px 0;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+.dept-link:hover {
+  color: #000000;
+}
+.dept-link.active {
+  color: #000000;
+}
+.dept-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #000000;
+}
+
+/* Header Right Actions */
+.alo-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Search Box */
+.alo-search-box {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+  width: 240px;
+  transition: all var(--transition-fast);
+}
+.alo-search-box:focus-within {
+  background: #ffffff;
+  border-color: #000000;
+  width: 300px;
+}
+.alo-search-input {
+  width: 100%;
+  font-size: 0.82rem;
+  color: #000000;
+  outline: none;
+}
+.alo-search-input::placeholder {
+  color: var(--text-muted);
+}
+.search-clear-btn {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 0 4px;
+  display: none;
+}
+.search-clear-btn.visible {
+  display: block;
+}
+
+/* Action Buttons */
+.alo-icon-btn {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-fast);
+}
+.alo-icon-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+.alo-count-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--petrol-accent);
+}
+.alo-icon-btn:hover .alo-count-badge {
+  color: #ffffff;
+}
+
+.alo-currency-select {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: #000000;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ==========================================================================
+   Collection Header / Hero Title (Alo Yoga Style)
+   ========================================================================== */
+.alo-collection-header {
+  padding: 40px 32px 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+.alo-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.alo-collection-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.1;
+}
+.alo-collection-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* Destination Switcher Banner */
+.alo-destination-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+.alo-dest-buttons {
+  display: inline-flex;
+  background: var(--bg-card);
+  border-radius: var(--radius-pill);
+  padding: 2px;
+  border: 1px solid var(--border-light);
+}
+.alo-dest-btn {
+  padding: 4px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+.alo-dest-btn.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Category Pill Slider (Alo Yoga Style Horizontal Scroll)
+   ========================================================================== */
+.alo-categories-bar {
+  border-bottom: 1px solid var(--border-light);
+  background: #ffffff;
+  padding: 4px 32px 16px;
+  overflow-x: auto;
+}
+.alo-categories-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.alo-cat-pill {
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.alo-cat-pill:hover {
+  border-color: #000000;
+  background: var(--bg-secondary);
+}
+.alo-cat-pill.active {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+.alo-cat-count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+.alo-cat-pill.active .alo-cat-count {
+  opacity: 0.85;
+  color: var(--petrol-border);
+}
+
+/* ==========================================================================
+   Filter & Sorting Bar (Alo Yoga Style Toolbar)
+   ========================================================================== */
+.alo-filter-toolbar {
+  position: sticky;
+  top: 69px;
+  z-index: 35;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 32px;
+}
+.alo-toolbar-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.alo-toolbar-left, .alo-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Select Dropdowns */
+.alo-select {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 8px 14px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+.alo-select:hover, .alo-select:focus {
+  border-color: #000000;
+}
+
+/* Price Presets */
+.alo-price-group {
+  display: flex;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+.alo-price-btn {
+  padding: 7px 12px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: #ffffff;
+  border-right: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+.alo-price-btn:last-child {
+  border-right: none;
+}
+.alo-price-btn:hover {
+  color: #000000;
+  background: var(--bg-secondary);
+}
+.alo-price-btn.active {
+  background: #000000;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Grid Switcher */
+.alo-grid-switcher {
+  display: flex;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+.alo-grid-btn {
+  padding: 7px 10px;
+  background: #ffffff;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+.alo-grid-btn:hover {
+  color: #000000;
+}
+.alo-grid-btn.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+.alo-results-counter {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.alo-results-num {
+  color: #000000;
+  font-weight: 800;
+}
+
+/* Active Chips */
+.alo-chips-container {
+  max-width: 1600px;
+  margin: 10px auto 0;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.alo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #000000;
+}
+.alo-chip-close {
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.alo-chip-close:hover {
+  color: #000000;
+}
+.alo-clear-all-link {
+  font-size: 0.75rem;
+  color: var(--petrol-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+/* ==========================================================================
+   Product Grid (Alo Yoga 4-Column Layout)
+   ========================================================================== */
+.alo-main-container {
+  flex: 1;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 32px 64px;
+}
+
+/* Standard 4-Column Grid */
+.alo-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 20px;
+}
+
+/* 2-Column Showcase */
+.alo-product-grid.compact {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px 12px;
+}
+
+/* List Mode */
+.alo-product-grid.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ==========================================================================
+   Alo Yoga Product Card
+   ========================================================================== */
+.alo-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #ffffff;
+  transition: transform var(--transition-fast);
+}
+
+/* Image Container (Portrait Aspect Ratio) */
+.alo-card-image-box {
+  position: relative;
+  width: 100%;
+  padding-top: 125%; /* 4:5 Portrait Ratio */
+  background-color: var(--bg-card);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+.alo-card-image-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.alo-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--bg-card);
+}
+.alo-card:hover .alo-card-img {
+  transform: scale(1.04);
+}
+
+/* Floating Save Heart Button */
+.alo-card-save-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.alo-card-save-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+.alo-card-save-btn.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Badge (e.g. HERREN, DAMEN, BEST SELLER) */
+.alo-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  background: #ffffff;
+  color: #000000;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+.alo-card-badge.petrol {
+  background: var(--petrol-accent);
+  color: #ffffff;
+}
+
+/* Hover Quick Shop Bar */
+.alo-card-hover-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.6) 100%);
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all var(--transition-fast);
+  z-index: 5;
+}
+.alo-card:hover .alo-card-hover-bar {
+  opacity: 1;
+  transform: translateY(0);
+}
+.alo-hover-btn {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000000;
+  border-radius: var(--radius-xs);
+  transition: background var(--transition-fast);
+}
+.alo-hover-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+.alo-hover-btn.petrol {
+  background: var(--petrol-accent);
+  color: #ffffff;
+}
+.alo-hover-btn.petrol:hover {
+  background: var(--petrol-hover);
+}
+
+/* Card Information */
+.alo-card-info {
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.alo-card-brand {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--petrol-accent);
+  margin-bottom: 3px;
+}
+.alo-card-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #000000;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+}
+.alo-card-title:hover {
+  text-decoration: underline;
+}
+
+.alo-card-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.alo-card-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #000000;
+}
+.alo-card-category {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+/* Direct Action Links Row */
+.alo-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 8px;
+}
+.alo-action-btn {
+  padding: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  color: #000000;
+  background: #ffffff;
+  transition: all var(--transition-fast);
+}
+.alo-action-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+.alo-action-btn.petrol {
+  background: var(--petrol-light);
+  color: var(--petrol-accent);
+  border-color: var(--petrol-border);
+}
+.alo-action-btn.petrol:hover {
+  background: var(--petrol-accent);
+  color: #ffffff;
+  border-color: var(--petrol-accent);
+}
+
+/* List Mode Styling */
+.alo-product-grid.list .alo-card {
+  flex-direction: row;
+  height: 140px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 14px;
+}
+.alo-product-grid.list .alo-card-image-box {
+  width: 120px;
+  height: 100%;
+  padding-top: 0;
+  flex-shrink: 0;
+}
+.alo-product-grid.list .alo-card-info {
+  padding-left: 20px;
+  padding-top: 0;
+  flex: 1;
+  justify-content: center;
+}
+.alo-product-grid.list .alo-card-actions {
+  width: 200px;
+  margin-top: 0;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Pagination (Alo Yoga Minimal Bar)
+   ========================================================================== */
+.alo-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.alo-page-btn {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+}
+.alo-page-btn:hover:not(:disabled) {
+  border-color: #000000;
+  background: var(--bg-secondary);
+}
+.alo-page-btn.active {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+.alo-page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.alo-page-info {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Slide-Over Drawer (Gemerkt / Wishlist)
+   ========================================================================== */
+.alo-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+.alo-drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.alo-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+  z-index: 105;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+}
+.alo-drawer-overlay.open .alo-drawer {
+  transform: translateX(0);
+}
+.alo-drawer-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.alo-drawer-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.alo-drawer-close {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+}
+.alo-drawer-close:hover {
+  color: #000000;
+}
+.alo-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.alo-drawer-empty {
+  margin: auto;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.alo-drawer-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.alo-drawer-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.alo-btn-primary {
+  width: 100%;
+  padding: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  background: #000000;
+  color: #ffffff;
+  border-radius: var(--radius-xs);
+  transition: background var(--transition-fast);
+}
+.alo-btn-primary:hover {
+  background: var(--petrol-accent);
+}
+.alo-btn-secondary {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+.alo-btn-secondary:hover {
+  border-color: #000000;
+}
+
+.alo-saved-item {
+  display: flex;
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-light);
+}
+.alo-saved-thumb {
+  width: 70px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+  background: var(--bg-card);
+}
+.alo-saved-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.alo-saved-brand {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--petrol-accent);
+}
+.alo-saved-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #000000;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.alo-saved-price {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.alo-saved-remove {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px;
+}
+.alo-saved-remove:hover {
+  color: #000000;
+}
+
+/* ==========================================================================
+   Quick View Modal
+   ========================================================================== */
+.alo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+.alo-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.alo-modal-box {
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+}
+.alo-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  z-index: 10;
+}
+.alo-modal-close:hover {
+  color: #000000;
+}
+.alo-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 32px;
+}
+@media (max-width: 768px) {
+  .alo-modal-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+.alo-modal-img-wrap {
+  aspect-ratio: 4/5;
+  background: var(--bg-card);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+.alo-modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.alo-modal-info {
+  display: flex;
+  flex-direction: column;
+}
+.alo-modal-brand {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--petrol-accent);
+  margin-bottom: 4px;
+}
+.alo-modal-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+.alo-modal-price {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-light);
+}
+.alo-modal-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+}
+.alo-modal-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-light);
+}
+.alo-modal-row span:first-child {
+  color: var(--text-muted);
+}
+.alo-modal-row span:last-child {
+  color: #000000;
+  font-weight: 600;
+}
+.alo-modal-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   Toast Notifications
+   ========================================================================== */
+.alo-toast-stack {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.alo-toast {
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
+.alo-toast-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--petrol-accent);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.alo-footer {
+  background: #ffffff;
+  border-top: 1px solid var(--border-light);
+  padding: 40px 32px 32px;
+  margin-top: auto;
+}
+.alo-footer-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .alo-product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .alo-header-inner {
+    grid-template-columns: 1fr auto;
+  }
+  .alo-nav-departments {
+    order: 3;
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .alo-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 12px;
+  }
+  .alo-product-grid.compact {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .alo-header-inner, .alo-collection-header, .alo-categories-bar, .alo-filter-toolbar, .alo-main-container, .alo-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (max-width: 550px) {
+  .alo-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 8px;
+  }
+  .alo-search-box {
+    display: none;
+  }
+}
