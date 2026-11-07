@@ -1,36 +1,53 @@
-# grec2k — Fashion & Streetwear Archiv
+# grec2k — Exclusive Luxury & Streetwear Catalog
 
-Ein reduziertes, minimalistisches Webapp-Interface für das [GREC2K Master Spreadsheet](https://docs.google.com/spreadsheets/d/10dLNxYUS-TrZgrTE_ZehPhQbAHmxHn17d6ynITQoUGw/htmlview) mit über **4.760 kuratierten Produkten**.
+Modern, minimalist luxury & streetwear collection catalog inspired by Alo Yoga's clean aesthetic.
 
----
-
-## 🖤 Design-Philosophie & Features
-
-- **Reduziertes Design**: Klassisches Schwarz-Weiß Farbschema mit dezentem **Petrol** (`#0e7490` / `#14b8a6`) als Highlight-Farbe.
-- **Keine überflüssigen Icons/Emojis**: Puristisches, ruhiges UI mit Fokus auf Typografie, klare Linien und Fotografie.
-- **Direkte Bildverlinkung**: Ein Klick auf das Produktbild öffnet den Weblink direkt im neuen Tab. Wahlweise umschaltbar zwischen *Original Weidian/Taobao Store* und *Litbuy Agent*.
-- **Kategorien & Abteilungen**:
-  - Filterung nach *Alle*, *Herren*, *Damen* und *Curated*.
-  - Horizontale Text-Kategorien (Schuhe, Jacken, Hoodies, T-Shirts, Hosen, Taschen, Uhren, Schmuck, Sonnenbrillen, Parfüm etc.) mit Artikelanzahl.
-- **Echtzeit-Suche & Filter**:
-  - Sofortige Filterung nach Marke (über 100 Designer-Labels), Preisklassen und Sortierung.
-  - Kompakt-, Standard- und Listenansicht.
-- **Gemerkt-Liste (Wishlist)**:
-  - Lokale Merkliste mit Gesamtsummen-Kalkulation und CSV-Export.
+🔗 **Live Website**: [https://redbrainlabs2.github.io/grec2k/](https://redbrainlabs2.github.io/grec2k/)
 
 ---
 
-## 🚀 Starten
+## ⚡ Features
 
-### Methode 1: Direkt im Browser öffnen (Keine Installation nötig)
-Einfach die Datei [`index.html`](file:///C:/Users/renes/.gemini/antigravity/scratch/exclusive-vault/index.html) im Browser öffnen:
-```
-C:\Users\renes\.gemini\antigravity\scratch\exclusive-vault\index.html
+- **Alo Yoga Aesthetic**: Clean white background, editorial typography, subtle borders, petrol highlights (`#0e7490`).
+- **Dynamic Catalog**: 4,700+ curated items across Men/Unisex, Women, and Exclusive Curated selections.
+- **Direct Store Links**: Clicking any product image leads directly to the original supplier/store link (Weidian / Taobao) or Litbuy agent.
+- **Instant Search & Filtering**: Real-time multi-term search, brand selection, category chips, and price sorting.
+- **Persistent Wishlist**: Save favorite items locally in the browser with slide-over drawer review.
+- **Currency Converter**: Instant price toggle between USD ($), EUR (€), and GBP (£).
+- **Automated Synchronization**: Automated GitHub Actions workflow syncing catalog updates & images directly from Google Sheets.
+
+---
+
+## 🔄 Automated Google Sheets Sync
+
+The catalog automatically syncs with the master Google Sheet:
+- **Scheduled Sync**: Runs automatically every 6 hours via GitHub Actions (`.github/workflows/sync-sheet.yml`).
+- **Manual Trigger**:
+  1. Open the repository on GitHub.
+  2. Click on the **Actions** tab.
+  3. Select **Sync Google Sheets Catalog** in the left sidebar.
+  4. Click **Run workflow** -> **Run workflow**.
+  5. The action will pull the newest products, download any new product images, commit them, and deploy to GitHub Pages automatically.
+
+### GitHub Actions Permission Setup
+To ensure the automated bot can push updates to the repository:
+1. Go to **Settings** > **Actions** > **General**.
+2. Scroll to **Workflow permissions**.
+3. Select **Read and write permissions**.
+4. Click **Save**.
+
+---
+
+## 🛠️ Local Development
+
+Open `index.html` directly in your browser or run a local static server:
+
+```bash
+npx serve .
 ```
 
-### Methode 2: Lokaler Node.js Server
-```powershell
-cd C:\Users\renes\.gemini\antigravity\scratch\exclusive-vault
-node server.js
+To run a manual sync locally:
+
+```bash
+python scripts/sync_catalog.py
 ```
-Anschließend [http://localhost:3000](http://localhost:3000) im Browser aufrufen.
